@@ -1,0 +1,27 @@
+let tokyo = {
+    location: 'Tokyo',
+    minCustomerPerHour: 3,
+    maxCustomerPerHour: 23,
+    avgCookiesPerSale: 1.2,
+};
+
+let dubai = {
+    location: 'Dubai',
+    minCustomerPerHour: 11,
+    maxCustomerPerHour: 38,
+    avgCookiesSalesPerSale: 3.7,
+};
+
+let paris = {
+    location: 'Paris',
+    minCustomerPerHour: 20,
+    maxCustomerPerHour: 38,
+    avgCookiesPerSale: 2.3,
+};
+
+let lima = {
+    location: 'Lima',
+    minCustomerPerHour: 2,
+    maxCustomerPerHour: 16,
+    avgCookiesPerSale: 4.6,               
+};
