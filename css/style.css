@@ -1,4 +1,7 @@
-ul {
+body {
+background-color: steelblue;
+}
+*ul navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
