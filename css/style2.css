@@ -1,3 +1,27 @@
 body {
-    background-color: steelblue;
+    background-color: salmon;
     }
+
+#table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    }
+    
+#table td, tables th {
+border: 1px solid indianred;
+padding: 8px;
+}
+    
+#table tr:nth-child(even){background-color: #f2f2f2;}
+#table tr:nth-child(even){background-color: indianred;}
+#table tr:hover {background-color: #ddd;}
+
+#table th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: indianred;
+color: black;
+text-align: center;

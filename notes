@@ -268,3 +268,25 @@ CookieStand.prototype.render = function() {
   row2.appendChild(goodWithCatsDataElem);
   goodWithCatsDataElem.textContent = this.goodWithOtherCats;
 }
+
+
+
+
+function tableTimeHeader() {
+  const tableElem = document.getElementById('table');
+  const row1 = document.createElement('tr');
+  const blankCell = document.createElement('td');
+  blankCell.textContent = '';
+  row1.appendChild(blankCell);
+  tableElem.appendChild(row1);
+  for (let index = 0; index < timeSlots.length; index++) {
+    const timeSlotsElem = document.createElement('th');
+    row1.appendChild(timeSlotsElem);
+    timeSlotsElem.textContent = timeSlots[i]; 
+  }
+  const dailyLocationTotals = document.createElement('th');
+  dailyLocationTotals.textContent = 'Daily Location Total';
+  row1.appendChild(dailyLocationTotals);
+
+}
+tableTimeHeader();

@@ -1,3 +1,5 @@
+'use strict';
+
 let timeSlots = [
     '6am',
     '7am',
@@ -13,8 +15,9 @@ let timeSlots = [
     '5pm',
     '6pm',
     '7pm',
+    'Daily Location Totals'
   ];
-let place = ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima'];  
+
   
 function randomInRange(min, max) {
     let range = max - min;
@@ -39,7 +42,7 @@ let standC = new CookieStand('dubai', 'Dubai Cookie', 11, 38, 3.7);
 let standD = new CookieStand('paris', 'Paris Cookie', 20, 38, 2.3);
 let standE = new CookieStand('lima', 'Lima Cookie', 2, 16, 4.6);
 let allStands = [standA, standB, standC, standD, standE];
-;
+
 
 CookieStand.prototype.generateCustomersPerHour = function() {
   let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
@@ -57,7 +60,7 @@ CookieStand.prototype.calcCookiesPerHour = function() {
 
 
 CookieStand.prototype.simulateCookies = function() {
-  for (let i = 0; i < timeSlots.length; i++) {
+  for (let i = 0; i < timeSlots.length - 1; i++) {
     let salmonCookie = this.calcCookiesPerHour();
     this.cookieSales.push(salmonCookie);
     this.storeTotal += salmonCookie
@@ -66,19 +69,67 @@ CookieStand.prototype.simulateCookies = function() {
 }
 
 
+
+
+
+
+
+
+
 CookieStand.prototype.render = function() {
-  let ulElem = document.getElementById(this.id);
-  for (let i = 0; i < timeSlots.length; i++) {
-    let liElem = document.createElement('li');  
-    liElem.textContent = timeSlots[i] + ' : ' + this.cookieSales[i] + ' cookies';
-    ulElem.appendChild(liElem);
+  const salesRow = document.createElement('tr');
+  const tableElem = document.getElementById('table');
+  tableElem.appendChild(salesRow);
+  const tableCell = document.createElement('td');
+  salesRow.appendChild(tableCell);
+  tableCell.textContent = this.location;
+  for (let i = 0; i < this.cookieSales.length; i ++) {
+    const cookiesElem = document.createElement('td');
+    cookiesElem.textContent = this.cookieSales[i];
+    salesRow.appendChild(cookiesElem);
+  }
+}
+
+// create table
+function renderHeaderRow(){
+const tableElem = document.getElementById('table');
+const rowOne = document.createElement('tr');
+tableElem.appendChild(rowOne);
+const emptyTh = document.createElement('th');
+rowOne.appendChild(emptyTh);
+for (let i = 0; i < timeSlots.length; i++) {
+  const timeHeaderElem = document.createElement('th');
+  timeHeaderElem.textContent = timeSlots[i];
+  rowOne.appendChild(timeHeaderElem);
+  timeHeaderElem.setAttribute('scope', 'col');  
+}
 
 }
-  let liElem = document.createElement('li');
-  liElem.textContent = 'Total' + ' : ' + this.storeTotal + ' cookies';
-  ulElem.appendChild(liElem);
 
-}
+function renderFooterRow() {
+  const tableElem = document.getElementById('table');
+  const tableFootElem = document.createElement('tr');
+  tableElem.appendChild(tableFootElem);
+  
+  const totalCookiesElem = document.createElement('th')
+  totalCookiesElem.setAttribute('scope', 'row')
+  totalCookiesElem.textContent = 'Totals';
+  tableFootElem.append(totalCookiesElem);
+    for (let i = 0; i < timeSlots.length; i++) {
+      let cookieTotalHour = 0;
+      for (let j = 0; j < allStands.length; j++) {
+          cookieTotalHour += allStands[j].cookieSales[i]
+      }
+      const cookieTd = document.createElement('td');
+      cookieTd.textContent = cookieTotalHour;
+      tableFootElem.appendChild(cookieTd);
+    }
+    
+
+  }
+
+renderHeaderRow();
+
 
 
 
@@ -88,42 +139,8 @@ for(let i = 0; i < allStands.length; i++) {
   allStands[i].render();
 }
 
-let tableElem = document.getElementById('table');
-const row1 = document.createElement('th');
 
-
-  for (let i = 0; i < timeSlots.length; i++) {
-    tableElem.appendChild(row1);
-    const sixElem = document.createElement('th');
-    sixElem.textContent = timeSlots[i];
-    row1.appendChild(sixElem);
-
-    }
-
-    const row2 = document.createElement('tr')
-    for (let i = 0; i < timeSlots.length; i++) {
-      tableElem.appendChild(row2);
-      const sixElem = document.createElement('tr');
-      sixElem.textContent = (place)[i];
-      row2.appendChild(sixElem);
-    }
-  // const row2 = document.createElement('tr');
-  // const row3 = document.createElement('tr');
-
-  // tableElem.appendChild(row2);
-  // tableElem.appendChild(row3);
-  // tableElem.appendChild(row4);
-  // tableElem.appendChild(row5);
-  // tableElem.appendChild(row6);
-
-
-  // const sixDataElem = document.createElement('tr')
-  // row2.appendChild(sixDataElem);
-  // sixDataElem.textContent = ('something');
-
-
-
-
+renderFooterRow();
 
 
 
