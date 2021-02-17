@@ -38,7 +38,7 @@ let standB = new CookieStand('tokyo', 'Tokyo Cookie', 3, 24, 1.2);
 let standC = new CookieStand('dubai', 'Dubai Cookie', 11, 38, 3.7);
 let standD = new CookieStand('paris', 'Paris Cookie', 20, 38, 2.3);
 let standE = new CookieStand('lima', 'Lima Cookie', 2, 16, 4.6);
-let allStands = ['standA', 'standB', 'standC', 'standD', 'standE'];
+let allStands = [standA, standB, standC, standD, standE];
 ;
 
 CookieStand.prototype.generateCustomersPerHour = function() {
