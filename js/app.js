@@ -127,19 +127,13 @@ function renderFooterRow() {
     
 
   }
-
+// puts my chart on the page
 renderHeaderRow();
-
-
-
-
 for(let i = 0; i < allStands.length; i++) {
   allStands[i].calcCookiesPerHour();
   allStands[i].simulateCookies();
   allStands[i].render();
 }
-
-
 renderFooterRow();
 
 
