@@ -6,27 +6,42 @@
 </head>
 <body>
     <h1>Pat's Salmon Cookies: Sales Data</h1>
-        <table id="table">
-            <!--
-                <th> time Slots </th>
+        <table id="table"></table>
+            <br>
+        <form id = "new-store-form">
+            <fieldset>
+            <legend>Enter New Cookie Store:</legend>
+            <lable>Location Name:
+                <input id="storeName" type="text" name="storeName" required>
+                </lable>
+                <br>
 
-                <tr> cookie sales per location per hour </tr>
+                <lable>Minimum Customers Per Hour:
+                    <input id="minCustomers" type="number" name="minCustomers" required>
+                </lable>
+                <br>
 
-                <tr> Totals </tr>
-            -->
-            <!-- <h2>Seattle</h2>
-            <ul id="seattle"></ul>
-            <h2>Tokyo</h2>
-            <ul id="tokyo"></ul>
-            <h2>Dubai</h2>
-            <ul id="dubai"></ul>
-            <h2>Paris</h2>
-            <ul id="paris"></ul>
-            <h2>Lima</h2>
-            <ul id="lima"></ul> -->
-        </table>
+
+                <lable>Maximum Customers Per Hour:
+                    <input id="maxCustomers" type="number" name="maxCustomers" required>
+                </lable>
+                <br>
+
+
+                <lable>Average Cookie Per Customer:
+                    <input id="avgCookies" type="number" name="avgCookies" required>
+                </lable>
+                <br>
+                <br>
+
+
+                <input id="submitButton" type="submit"/>
+
+            </fieldset>
+        </form>
+
     <footer>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Go Home</a></li>
     </footer>
     <script src='js/app.js'></script>
 

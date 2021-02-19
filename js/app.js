@@ -1,22 +1,10 @@
 'use strict';
 
-let timeSlots = [
-    '6am',
-    '7am',
-    '8am',
-    '9am',
-    '10am',
-    '11am',
-    '12pm',
-    '1pm',
-    '2pm',
-    '3pm',
-    '4pm',
-    '5pm',
-    '6pm',
-    '7pm',
-    'Daily Location Totals'
-  ];
+let timeSlots = ['6:00AM','7:00AM','8:00AM','9:00am','10:00AM','11:00AM',
+'12:00PM','1:00PM','2:00PM','3:00PM','4:00PM','5:00PM','6:00PM','7:00PM',
+'Daily Location Totals' ];
+
+ 
 
   
 function randomInRange(min, max) {
@@ -27,15 +15,18 @@ function randomInRange(min, max) {
 
 
   
-function CookieStand (id, location, min, max, avgCookiesPerSale, cookieSales = []) {
+function CookieStand (id, location, min, max, avgCookiesPerSale,) {
   this.id = id;
   this.location = location;
   this.minCustomersPerHour = min;
   this.maxCustomersPerHour = max;
   this.avgCookiesPerSale = avgCookiesPerSale;
-  this.cookieSales = cookieSales;
+  this.cookieSales = [];
   this.storeTotal = 0;
+  
 }
+let locationList = [];
+
 let standA = new CookieStand('seattle', 'Seattle Cookie', 23, 65, 6.3,);
 let standB = new CookieStand('tokyo', 'Tokyo Cookie', 3, 24, 1.2);
 let standC = new CookieStand('dubai', 'Dubai Cookie', 11, 38, 3.7);
@@ -138,6 +129,32 @@ renderFooterRow();
 
 
 
+let myform = document.getElementById('new-store-form')
+myform.addEventListener("submit", submitHandler)
+
+function submitHandler(event) {
+  event.preventDefault();
 
 
+
+  let id = event.target.storeName.value;
+  let minCustomers = event.target.minCustomers.value
+  let maxCustomers = event.target.maxCustomers.value;
+  let avgCookies = event.target.avgCookies.value;
+  let name = id + ' Cookie'
+  let newStand = new CookieStand (id, name, minCustomers, maxCustomers, avgCookies, );
+  allStands.push(newStand);
+  const tableElem = document.getElementById('table');
+  tableElem.innerHTML = '';
+renderHeaderRow();
+newStand.calcCookiesPerHour();
+newStand.simulateCookies();
+
+for(let i = 0; i < allStands.length; i++) {
+  allStands[i].render();
+}
+renderFooterRow();
+}
+
+const form = document.getElementById('new-store-form');
   

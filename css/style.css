@@ -49,13 +49,17 @@ nav a:hover {
 }
 img {
     height: 300px;
-    
+    border-radius: 10px;
     margin-left: 100px;
 }
 
 .foot{ 
     width: 100%;
-    background-color: seashell;
+    background-color: white;
     overflow: auto;
     padding: 20px;
+}
+
+.fish {
+   height: 100px; 
 }
