@@ -14,6 +14,7 @@ function onTick() {
     span.classList.add('fade');
     char++
     if(char === splitText.length) {
+        complete();
         return;
     }
 }
