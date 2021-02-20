@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color: seashell;
     }
 
 h1{
@@ -18,8 +18,8 @@ border: 1px solid indianred;
 padding: 8px;
 }
 
-img {
-    border-radius: 10px;
+#table tr {
+    background-color: peachpuff;
 }
     
 

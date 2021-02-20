@@ -1,10 +1,12 @@
 body {
     background-color: salmon;
+    font-style:arial;
 }
 nav {
     width: 100%;
     background-color: seashell;
     overflow: auto;
+    border-radius: 20px;
 }
 ul {
     padding: 0;
@@ -29,6 +31,11 @@ nav a:hover {
     background: salmon;
     transition: 0.5s;
     text-transform: uppercase;
+    font-family: 'papyrus';
+}
+h2:hover {
+    font-family: 'papyrus';
+    
 }
 .logo img {
     position: absolute;
@@ -39,7 +46,38 @@ nav a:hover {
 .patsh1 {
     text-align: center;
     font-size: 100px;
+    color: salmon;
 }
+
+.patsh1:nth-child(3) {
+    color:salmon;
+}
+
+.title {
+    
+    padding: 20px;
+}
+
+.family {
+    margin-right: 200px;s
+
+ }
+
+ .locations {
+     background-color: seashell;
+     padding: 20px;
+     border-radius: 10px;
+     margin: 20px;
+ }
+
+ .bio {
+     background-color: seashell;
+     padding: 100px;
+     border-radius: 10px;
+     margin: 20px;
+     font-size: 3rem;
+     text-align: center;
+ }
 
 .flex-container{
     display:flex;
@@ -54,12 +92,28 @@ img {
 }
 
 .foot{ 
-    width: 100%;
-    background-color: white;
+    width: 98%;
+    background-color: seashell;
     overflow: auto;
     padding: 20px;
+    border-radius: 20px;
 }
 
-.fish {
-   height: 100px; 
+
+
+span {
+    opacity: 0;
+    transition: all 0.5s ease;
+    transform: translateY(100px);
+    display: inline-block;
+    
+}
+
+span.fade{
+    opacity: 1;
+    transform: translateY(0px);
+    color: black;
+}
+span.space {
+    color: salmon;
 }
